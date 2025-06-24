@@ -128,11 +128,19 @@ export const AddFoodModal = ({
                   className="w-full px-3 py-2 bg-opacity-70 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500 text-white bg-transparent"
                   required
                 >
-                  <option value="" disabled className="bg-transparent text-white">
+                  <option
+                    value=""
+                    disabled
+                    className="bg-transparent text-white"
+                  >
                     Select Category
                   </option>
                   {categories.map((category, index) => (
-                    <option key={index} value={category} className="bg-transparent text-black">
+                    <option
+                      key={index}
+                      value={category}
+                      className="bg-transparent text-black"
+                    >
                       {category}
                     </option>
                   ))}
@@ -152,7 +160,6 @@ export const AddFoodModal = ({
                   required
                 />
               </div>
-
 
               <div>
                 <input
