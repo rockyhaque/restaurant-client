@@ -46,59 +46,60 @@ export const AddCategoryModal = ({
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
         >
-          {/* Backdrop with light blur effect */}
+          {/* Enhanced glass backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm"
+            className="fixed inset-0"
+            style={{
+              // background: "rgba(15, 23, 42, 0.3)", 
+              background: "rgba(0, 0, 0, 0.8)", 
+              backdropFilter: "blur(0px)",
+              WebkitBackdropFilter: "blur(10px)",
+            }}
             onClick={onClose}
           />
 
-          {/* Modal content */}
+          {/* Glass morphism modal */}
           <motion.div
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 20, opacity: 0 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative bg-white rounded-lg shadow-xl w-full max-w-md p-6"
+            className="relative w-full max-w-xs p-6 rounded-xl"
+            style={{
+              background: "rgba(255, 255, 255, 0.2)",
+              backdropFilter: "blur(16px) saturate(180%)",
+              WebkitBackdropFilter: "blur(16px) saturate(180%)",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
+              boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+            }}
+            onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">
-              Add New Category
+            <h2 className="text-xl text-center text-white mb-4">
+              Add Category
             </h2>
 
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
-                <label
-                  htmlFor="category-name"
-                  className="block text-sm font-medium text-gray-700 mb-1"
-                >
-                  Name
-                </label>
                 <input
                   type="text"
                   id="category-name"
                   value={categoryName}
                   onChange={(e) => setCategoryName(e.target.value)}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500"
-                  placeholder="Enter category name"
+                  className="w-full px-3 py-2 bg-opacity-70 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500 placeholder-white"
+                  placeholder="Name"
                   required
                 />
               </div>
 
-              <div className="flex justify-end space-x-3">
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 transition-colors"
-                >
-                  Cancel
-                </button>
+              <div className="flex justify-center space-x-3">
                 <button
                   type="submit"
-                  className="px-4 py-2 text-sm font-medium text-white bg-gray-900 rounded-md hover:bg-gray-700 transition-colors"
+                  className="bg-red-500 text-white px-3 py-1 rounded-2xl hover:bg-opacity-100 transition-all"
                 >
-                  Add Category
+                  Save
                 </button>
               </div>
             </form>

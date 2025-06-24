@@ -6,7 +6,7 @@ import React, { Suspense } from "react";
 import { FoodCardSkeleton } from "../Skeleton/FoodCardSkeleton";
 import { AddCategoryButton } from "../Button/AddCategoryButton";
 
-const Dishes = async ({ category, searchQuery }: IDishesProps) => {
+const Dishes = async ({ category}: IDishesProps) => {
   const allFoods = await getAllFoods();
   const allFoodCategories = await getAllFoodCategories();
 
