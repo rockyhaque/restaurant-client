@@ -1,11 +1,16 @@
 import Dishes from "@/components/Dishes/Dishes";
 
-export default function Home() {
+export default function Home({
+  searchParams,
+}: {
+  searchParams: { category?: string; search?: string };
+}) {
   return (
-    <div>
-      <div>
-        <Dishes />
-      </div>
-    </div>
+    <main>
+      <Dishes
+        category={searchParams.category}
+        searchQuery={searchParams.search}
+      />
+    </main>
   );
 }
