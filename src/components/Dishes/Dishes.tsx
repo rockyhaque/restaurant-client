@@ -24,6 +24,8 @@ const Dishes = async ({ category }: IDishesProps) => {
     ...new Set(allFoodCategories.map((item: IFoodItem) => item.category)),
   ];
 
+  console.log("categories", categories)
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
       {/* Header Section */}
@@ -109,7 +111,7 @@ const Dishes = async ({ category }: IDishesProps) => {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-1">
                       <span className="text-yellow-400 text-sm">
-                        ★ {food.rating}
+                        ★ ★ ★ ★ ★
                       </span>
                     </div>
                     <span className="text-xl font-bold text-gray-900">
