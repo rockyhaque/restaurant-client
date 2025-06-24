@@ -1,29 +1,24 @@
-import { getAllFoods } from "@/services/FoodServices";
+import { getAllFoodCategories, getAllFoods } from "@/services/FoodServices";
 import { IDishesProps, IFoodItem } from "@/types/IFood";
 import Image from "next/image";
 import Link from "next/link";
 import React, { Suspense } from "react";
 import { FoodCardSkeleton } from "../Skeleton/FoodCardSkeleton";
-
-interface DishesProps {
-  category?: string;
-  searchQuery?: string;
-}
+import { AddCategoryButton } from "../Button/AddCategoryButton";
 
 const Dishes = async ({ category, searchQuery }: IDishesProps) => {
-
-
   const allFoods = await getAllFoods();
+  const allFoodCategories = await getAllFoodCategories();
 
   // Filter foods based on category if provided
   const filteredFoods = category
     ? allFoods.filter((food) => food.category === category)
     : allFoods;
 
-  // Extract unique categories from all foods
+  // Extract categories
   const categories = [
     "All",
-    ...new Set(allFoods.map((food: IFoodItem) => food.category)),
+    ...new Set(allFoodCategories.map((item: IFoodItem) => item.category)),
   ];
 
   return (
@@ -65,9 +60,7 @@ const Dishes = async ({ category, searchQuery }: IDishesProps) => {
           <button className="px-5 py-2 rounded-full text-sm font-medium transition-colors bg-gray-900 text-white hover:bg-gray-700 cursor-pointer">
             Add Food
           </button>
-          <button className="px-5 py-2 rounded-full text-sm font-medium transition-colors bg-gray-900 text-white hover:bg-gray-700 cursor-pointer">
-            Add Category
-          </button>
+          <AddCategoryButton />
         </div>
       </div>
 

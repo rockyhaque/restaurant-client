@@ -10,6 +10,6 @@ export interface IFoodItem {
 }
 
 export interface IDishesProps {
-  category?: string;
-  searchQuery?: string;
+  category?: string | string[];
+  searchQuery?: string | string[];
 }

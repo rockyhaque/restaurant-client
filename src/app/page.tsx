@@ -1,15 +1,17 @@
 import Dishes from "@/components/Dishes/Dishes";
 
-export default function Home({
+export default async function Home({
   searchParams,
 }: {
-  searchParams: { category?: string; search?: string };
+  searchParams: { [key: string]: string | string[] | undefined };
 }) {
+  const category = searchParams.category;
+  const searchQuery = searchParams.search;
   return (
     <main>
       <Dishes
-        category={searchParams.category}
-        searchQuery={searchParams.search}
+        category={category}
+        searchQuery={searchQuery}
       />
     </main>
   );
