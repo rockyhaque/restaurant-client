@@ -20,7 +20,7 @@ export const AddFoodModal = ({
     title: "",
     category: "",
     price: 0,
-    rating: 0,
+    rating: 5,
     img: "",
   });
 
@@ -51,13 +51,6 @@ export const AddFoodModal = ({
     }));
   };
 
-  // const handleCategorySelect = (category: string) => {
-  //   setFormData((prev) => ({
-  //     ...prev,
-  //     category,
-  //   }));
-  // };
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onAddFood(formData);
@@ -65,7 +58,6 @@ export const AddFoodModal = ({
       title: "",
       category: "",
       price: 0,
-      rating: 0,
       img: "",
     });
     onClose();
@@ -161,20 +153,6 @@ export const AddFoodModal = ({
                 />
               </div>
 
-              <div>
-                <input
-                  type="number"
-                  name="rating"
-                  value={formData.rating}
-                  onChange={handleChange}
-                  className="w-full px-3 py-2 bg-opacity-70 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-500 placeholder-white text-white"
-                  placeholder="Rating (0-5)"
-                  min="0"
-                  max="5"
-                  step="0.1"
-                  required
-                />
-              </div>
 
               <div>
                 <input

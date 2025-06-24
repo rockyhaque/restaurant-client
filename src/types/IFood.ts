@@ -4,7 +4,7 @@ export interface IFoodItem {
   img?: string;
   category: string;
   price: number;
-  rating: number;
+  rating?: number;
   createdAt?: string;
   updatedAt?: string;
 }
