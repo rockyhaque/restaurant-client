@@ -56,6 +56,39 @@ export const getAllFoodCategories = async () => {
   }
 };
 
+export const addFood = async (payload: any) => {
+  try {
+    const response = await fetch(
+      "https://restaurant-two-gilt.vercel.app/api/foods/add-food",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ... payload }),
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Failed to add food: ${response.status}`);
+    }
+
+    const result: ApiResponse = await response.json();
+
+    if (result.success) {
+      return { success: true, data: result.data };
+    } else {
+      throw new Error(result.message || "Failed to add food");
+    }
+  } catch (error) {
+    console.error("Error adding food:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Unknown error",
+    };
+  }
+};
+
 export const addFoodCategory = async (category: string) => {
   try {
     const response = await fetch(

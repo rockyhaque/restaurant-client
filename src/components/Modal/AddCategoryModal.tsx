@@ -97,7 +97,7 @@ export const AddCategoryModal = ({
               <div className="flex justify-center space-x-3">
                 <button
                   type="submit"
-                  className="bg-red-500 text-white px-3 py-1 rounded-2xl hover:bg-opacity-100 transition-all"
+                  className="bg-red-500 text-white px-3 py-1 rounded-2xl hover:bg-opacity-100 transition-all w-full"
                 >
                   Save
                 </button>

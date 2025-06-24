@@ -5,13 +5,11 @@ export default async function Home({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const category = searchParams.category;
-  const searchQuery = searchParams.search;
+  const category = searchParams?.category;
   return (
     <main>
       <Dishes
         category={category}
-        searchQuery={searchQuery}
       />
     </main>
   );

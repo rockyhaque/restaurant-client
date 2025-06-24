@@ -5,8 +5,9 @@ import Link from "next/link";
 import React, { Suspense } from "react";
 import { FoodCardSkeleton } from "../Skeleton/FoodCardSkeleton";
 import { AddCategoryButton } from "../Button/AddCategoryButton";
+import { AddFoodButton } from "../Button/AddFoodButton";
 
-const Dishes = async ({ category}: IDishesProps) => {
+const Dishes = async ({ category }: IDishesProps) => {
   const allFoods = await getAllFoods();
   const allFoodCategories = await getAllFoodCategories();
 
@@ -14,6 +15,8 @@ const Dishes = async ({ category}: IDishesProps) => {
   const filteredFoods = category
     ? allFoods.filter((food) => food.category === category)
     : allFoods;
+
+  console.log("allFoodCategories:", allFoodCategories);
 
   // Extract categories
   const categories = [
@@ -57,9 +60,7 @@ const Dishes = async ({ category}: IDishesProps) => {
 
         {/* Action Buttons */}
         <div className="flex gap-2">
-          <button className="px-5 py-2 rounded-full text-sm font-medium transition-colors bg-gray-900 text-white hover:bg-gray-700 cursor-pointer">
-            Add Food
-          </button>
+          <AddFoodButton />
           <AddCategoryButton />
         </div>
       </div>
