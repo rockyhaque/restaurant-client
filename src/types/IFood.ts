@@ -1,7 +1,7 @@
 export interface IFoodItem {
   _id?: string;
   title: string;
-  img?: string;
+  img?: string | string[];
   category: string;
   price: number;
   rating?: number;

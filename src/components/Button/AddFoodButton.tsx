@@ -15,15 +15,13 @@ export const AddFoodButton = () => {
       const result = await addFood(payload);
       
       if (result.success) {
-        // toast.success("Category added successfully");
-        // You might want to add state management here to update the categories list
         console.log("Food added successfully")
       } else {
-        // toast.error(result.error || "Failed to add category");
-        console.log("Failed to add category")
+        // toast.error(result.error || "Failed to add food");
+        console.log("Failed to add food")
       }
     } catch (error) {
-      console.error("Error adding category:", error);
+      console.error("Error adding food:", error);
       // toast.error("An error occurred while adding the category");
     } finally {
       setIsLoading(false);

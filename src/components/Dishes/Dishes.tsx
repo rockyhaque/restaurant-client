@@ -16,15 +16,11 @@ const Dishes = async ({ category }: IDishesProps) => {
     ? allFoods.filter((food) => food.category === category)
     : allFoods;
 
-  console.log("allFoodCategories:", allFoodCategories);
-
   // Extract categories
   const categories = [
     "All",
     ...new Set(allFoodCategories.map((item: IFoodItem) => item.category)),
   ];
-
-  console.log("categories", categories)
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
@@ -92,7 +88,8 @@ const Dishes = async ({ category }: IDishesProps) => {
               >
                 <div className="aspect-square relative">
                   <Image
-                    src={food?.img || "/food-placeholder.jpg"}
+                    // src={food?.img || "/food-placeholder.jpg"}
+                    src={Array.isArray(food?.img) ? food.img[0] : food?.img || "/food-placeholder.jpg"}
                     alt={food?.title || "Food item"}
                     fill
                     className="object-cover"
@@ -110,9 +107,7 @@ const Dishes = async ({ category }: IDishesProps) => {
                   </div>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-1">
-                      <span className="text-yellow-400 text-sm">
-                        ★ ★ ★ ★ ★
-                      </span>
+                      <span className="text-yellow-400 text-sm">★ ★ ★ ★ ★</span>
                     </div>
                     <span className="text-xl font-bold text-gray-900">
                       ${food.price.toFixed(2)}
